@@ -482,3 +482,6 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+Front/ProEvent-App/.angular/cache
+Front/ProEvent-App/dist

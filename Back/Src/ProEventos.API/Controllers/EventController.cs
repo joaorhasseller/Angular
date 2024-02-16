@@ -10,6 +10,11 @@ public class EventController : ControllerBase
     {
     }
 
-    [HttpGet(Name = "GetEvent")]
-    public string Get() => "d";
+    [HttpGet("Teste")]
+    public object Get()
+    {
+      return new { 
+        Name = "Teste Requisição",
+      };
+    }
 }

@@ -11,6 +11,7 @@ internal class Program
         builder.Services.AddDbContext<DataContext>(opt => 
             opt.UseSqlite(builder.Configuration.GetConnectionString("Default")));
 
+        builder.Services.AddCors();
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
@@ -28,9 +29,12 @@ internal class Program
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
-
+        app.UseCors(cors => cors.AllowAnyOrigin()
+                                .AllowAnyHeader()
+                                .AllowAnyMethod()
+                    );
         app.MapControllers();
 
         app.Run();
     }
-}
+}   
